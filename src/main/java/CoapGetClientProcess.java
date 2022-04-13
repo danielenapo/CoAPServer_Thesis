@@ -26,7 +26,7 @@ public class CoapGetClientProcess {
 
     //private static final String COAP_ENDPOINT = "coap://127.0.0.1:5683/coffee";
 
-    private static final String COAP_ENDPOINT = "coap://127.0.0.1:5683/temperature";
+    private static final String COAP_ENDPOINT = "coap://192.168.0.255:5683/temperature";
 
     //private static final String COAP_ENDPOINT = "coap://127.0.0.1:5683/capsule";
 

@@ -33,5 +33,18 @@
             <artifactId>gson</artifactId>
             <version>2.3</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.californium</groupId>
+            <artifactId>element-connector</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.californium</groupId>
+            <artifactId>element-connector-tcp-netty</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+
     </dependencies>
 </project>
