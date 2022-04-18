@@ -1,17 +1,10 @@
-/*package it.unimore.fum.iot;
+package simpleServer;/*package it.unimore.fum.iot;
 import it.unimore.fum.iot.resource.CapsulePresenceSensorResource;
 import it.unimore.fum.iot.resource.CoffeeActuatorResource;
-import it.unimore.fum.iot.resource.TemperatureSensorResource;*/
-
+import it.unimore.fum.iot.resource.resources.TemperatureSensorResource;*/
 import org.eclipse.californium.core.CoapServer;
-import org.eclipse.californium.core.coap.CoAP;
-import org.eclipse.californium.core.network.CoapEndpoint;
-import org.eclipse.californium.core.network.Endpoint;
 import org.eclipse.californium.core.network.EndpointManager;
-import org.eclipse.californium.elements.Connector;
-
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
+import resources.TemperatureSensorResource;
 
 /**
  * @author Marco Picone, Ph.D. - picone.m@gmail.com

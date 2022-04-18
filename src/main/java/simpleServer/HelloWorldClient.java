@@ -1,4 +1,4 @@
-//package it.unimore.fum.iot.client;
+package simpleServer;//package it.unimore.fum.iot.client;
 
 import org.eclipse.californium.core.CoapClient;
 import org.eclipse.californium.core.CoapResponse;
@@ -22,11 +22,11 @@ import java.io.IOException;
  * @project coap-playground
  * @created 20/10/2020 - 09:19
  */
-public class CoapGetClientProcess {
+public class HelloWorldClient {
 
     //private static final String COAP_ENDPOINT = "coap://127.0.0.1:5683/coffee";
 
-    private static final String COAP_ENDPOINT = "coap://192.168.0.255:5683/temperature";
+    private static final String COAP_ENDPOINT = "coap://localhost:5683/temperature";
 
     //private static final String COAP_ENDPOINT = "coap://127.0.0.1:5683/capsule";
 

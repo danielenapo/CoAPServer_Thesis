@@ -1,4 +1,4 @@
-//package it.unimore.fum.iot.model;
+package resources;//package it.unimore.fum.iot.model;
 
 import java.util.Random;
 
@@ -56,7 +56,7 @@ public class TemperatureSensorDescriptor {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("TemperatureSensorDescriptor{");
+        final StringBuffer sb = new StringBuffer("resources.TemperatureSensorDescriptor{");
         sb.append("timestamp=").append(timestamp);
         sb.append(", value=").append(value);
         sb.append(", unit='").append(unit).append('\'');

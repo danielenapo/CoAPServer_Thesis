@@ -1,4 +1,4 @@
-/*******************************************************************************
+package pluginTest; /*******************************************************************************
  * Copyright (c) 2015 Institute for Pervasive Computing, ETH Zurich and others.
  *
  * All rights reserved. This program and the accompanying materials
@@ -31,12 +31,19 @@ import org.eclipse.californium.elements.config.UdpConfig;
 import org.eclipse.californium.elements.exception.ConnectorException;
 
 
-public class GETClient {
+public class GETClientPlugin {
 
     private static final File CONFIG_FILE = new File("Californium3.properties");
     private static final String CONFIG_HEADER = "Californium CoAP Properties file for client";
     private static final int DEFAULT_MAX_RESOURCE_SIZE = 2 * 1024 * 1024; // 2 MB
     private static final int DEFAULT_BLOCK_SIZE = 512;
+    private String response;
+
+    //SINGLETON PATTERN
+    private static final GETClientPlugin pluginInstance=new GETClientPlugin();
+    public static GETClientPlugin getInstace(){
+        return pluginInstance;
+    }
 
     static {
         CoapConfig.register();
@@ -56,7 +63,7 @@ public class GETClient {
     /*
      * Application entry point.
      */
-    public static void main(String args[]) {
+    public String getResponse(String ip, String resource) {
         Configuration config = Configuration.createWithFile(CONFIG_FILE, CONFIG_HEADER, DEFAULTS);
         Configuration.setStandard(config);
 
@@ -65,43 +72,28 @@ public class GETClient {
 
         // input URI from command line arguments
         try {
-            uri = new URI("coap://localhost:5683/temperature");
+            uri = new URI("coap://" + ip + ":5683/" + resource);
         } catch (URISyntaxException e) {
             System.err.println("Invalid URI: " + e.getMessage());
             System.exit(-1);
+            response= "invalid URI" + e.getMessage();
         }
 
         CoapClient client = new CoapClient(uri);
-        System.out.println(uri.getHost());
 
         try {
-            CoapResponse response = client.get();
-            if (response != null) {
-
-                System.out.println(response.getCode());
-                System.out.println(response.getOptions());
-                if (args.length > 1) {
-                    try (FileOutputStream out = new FileOutputStream(args[1])) {
-                        out.write(response.getPayload());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    System.out.println(response.getResponseText());
-
-                    System.out.println(System.lineSeparator() + "ADVANCED" + System.lineSeparator());
-                    // access advanced API with access to more details through
-                    // .advanced()
-                    System.out.println(Utils.prettyPrint(response));
-                }
+            CoapResponse coapResponse = client.get();
+            if (coapResponse != null) {
+                response= coapResponse.getResponseText();
             } else {
-                System.out.println("No response received.");
+                response= "No response received.";
             }
         } catch (ConnectorException | IOException e) {
-            System.err.println("Got an error: " + e);
+            response= "Got an error: " + e;
         }
 
         client.shutdown();
+        return response;
 
     }
 
