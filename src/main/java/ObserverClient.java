@@ -33,7 +33,7 @@ public class ObserverClient {
             }
         });
 
-        // Observes the coap resource for 120 seconds then the observing relation is deleted
+        // Observes the coap resource for 5 seconds then the observing relation is deleted
         try {
             Thread.sleep(120);
         } catch (InterruptedException e) {
