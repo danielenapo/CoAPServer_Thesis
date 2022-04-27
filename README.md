@@ -1,5 +1,5 @@
-# SimpleCoAPServer
-simple CoAP server in java for test purposes
+# CoAPServer Thesis
+CoAP server in java, made using Californium, to communicate with the AR client of my thesis' project. It also contains some clients for tests purposes.
 
-## Firewall note
-On windows, to be able to recieve requests on the server, turn off windows firewall or add a rule for CoAP packets (protocol UDP, port 5683)
+## NOTE (firewall)
+On windows, be sure to turn off windows firewall or add a rule to allow CoAP packets **(protocol UDP, port 5683)**
