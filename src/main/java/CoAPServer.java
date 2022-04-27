@@ -8,6 +8,7 @@ import org.eclipse.californium.core.network.CoapEndpoint;
 import org.eclipse.californium.elements.config.Configuration;
 import org.eclipse.californium.elements.config.UdpConfig;
 import org.eclipse.californium.elements.util.NetworkInterfacesUtil;
+import resources.CoffeeActuatorResource;
 import resources.TemperatureSensorResource;
 
 public class CoAPServer extends CoapServer {
@@ -61,6 +62,7 @@ public class CoAPServer extends CoapServer {
 
         // provide an instance of a Hello-World resource
         add(new TemperatureSensorResource("temperature"));
+        add(new CoffeeActuatorResource("coffee"));
     }
 
 }
