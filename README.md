@@ -3,3 +3,5 @@ CoAP server in java, made using Californium, to communicate with the AR client o
 
 ## NOTE (firewall)
 On windows, be sure to turn off windows firewall or add a rule to allow CoAP packets **(protocol UDP, port 5683)**
+
+(LOC=700)
